@@ -103,9 +103,9 @@
 >
 	<button class="hidden w-full items-center justify-center md:flex" onclick={toggleMode}>
 		<img
-			class="size-8 cursor-pointer"
-			src={mode.current === "dark" ? "logo_dark.svg" : "logo_light.svg"}
-			alt="Logo"
+			class="size-12 cursor-pointer"
+			src={mode.current === "dark" ? "moon.png" : "sun.png"}
+			alt={mode.current === "dark" ? "Switch to light mode" : "Switch to dark mode"}
 		/>
 	</button>
 
