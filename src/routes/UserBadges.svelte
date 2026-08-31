@@ -110,15 +110,16 @@
 		</Tooltip.Root>
 	{/if}
 
-	<!-- Login streak -->
-	{#if loginStreak > 1 || !isCompact}
+	<!-- Login streak — only on the full/default size (profile page). Every
+	     compact context (feed cards, sidebars, DMs) is tight on space and
+	     the streak is the least essential badge, so it's dropped there
+	     entirely rather than squeezed in. -->
+	{#if !isCompact}
 		<Tooltip.Root>
 			<Tooltip.Trigger>
 				<span class="streak-wrap">
 					<Flame size={iconSize} color={flameColor} fill={flameColor} strokeWidth={1.5} />
-					{#if !isCompact}
-						<span class="streak-num" style="color: {flameColor}">{loginStreak}</span>
-					{/if}
+					<span class="streak-num" style="color: {flameColor}">{loginStreak}</span>
 				</span>
 			</Tooltip.Trigger>
 			<Tooltip.Content><p><strong>{loginStreak}-day</strong> login streak</p></Tooltip.Content>
